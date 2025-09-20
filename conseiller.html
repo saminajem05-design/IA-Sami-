@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Espace conseiller - IA Sami</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <div class="brand">
+          <span class="brand__logo" aria-hidden="true">📋</span>
+          <span class="brand__name">Espace conseiller</span>
+        </div>
+        <nav class="site-nav" aria-label="Navigation principale">
+          <a href="index.html">Accueil</a>
+          <a href="client.html">Espace client</a>
+          <a href="conseiller.html" aria-current="page">Espace conseiller</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrapper page">
+      <header class="page__header">
+        <h1>Consultez les fiches prospects</h1>
+        <p>
+          Retrouvez ici les informations partagées par vos clients et mettez à jour leur
+          statut de suivi.
+        </p>
+      </header>
+
+      <section class="card">
+        <h2>Filtrer les fiches</h2>
+        <form class="filters" id="filters">
+          <label>
+            Rechercher
+            <input type="search" id="search" name="search" placeholder="Nom, ville, service..." />
+          </label>
+          <label>
+            Statut
+            <select id="statusFilter" name="status">
+              <option value="">Tous</option>
+              <option value="Nouveau">Nouveau</option>
+              <option value="Contacté">Contacté</option>
+              <option value="En cours">En cours</option>
+              <option value="Terminé">Terminé</option>
+            </select>
+          </label>
+          <label>
+            Tri
+            <select id="sort" name="sort">
+              <option value="recent">Plus récent</option>
+              <option value="oldest">Plus ancien</option>
+              <option value="alpha">Ordre alphabétique</option>
+            </select>
+          </label>
+          <button class="button button--ghost" type="button" id="clear">Effacer les filtres</button>
+        </form>
+      </section>
+
+      <section class="card" aria-live="polite">
+        <div class="list-header">
+          <h2>Fiches prospects</h2>
+          <p><span id="leadCounter">0</span> fiche(s) disponible(s)</p>
+        </div>
+        <div id="leadList" class="lead-list" role="list"></div>
+        <p id="emptyState" class="empty-state" hidden>
+          Aucune fiche n'est disponible pour le moment. Invitez un client à remplir le
+          formulaire pour commencer.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <p>Projet démonstrateur — IA Sami</p>
+      </div>
+    </footer>
+
+    <template id="leadCardTemplate">
+      <article class="lead-card" role="listitem">
+        <header>
+          <h3></h3>
+          <p class="lead-meta"></p>
+        </header>
+        <dl class="lead-details"></dl>
+        <div class="lead-actions">
+          <label>
+            Statut
+            <select class="lead-status">
+              <option value="Nouveau">Nouveau</option>
+              <option value="Contacté">Contacté</option>
+              <option value="En cours">En cours</option>
+              <option value="Terminé">Terminé</option>
+            </select>
+          </label>
+          <button type="button" class="button button--ghost lead-delete">Supprimer</button>
+        </div>
+      </article>
+    </template>
+
+    <script type="module" src="assets/js/conseiller.js"></script>
+  </body>
+</html>
