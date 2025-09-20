@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Formulaire client - IA Sami</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <div class="brand">
+          <span class="brand__logo" aria-hidden="true">📝</span>
+          <span class="brand__name">Espace client</span>
+        </div>
+        <nav class="site-nav" aria-label="Navigation principale">
+          <a href="index.html">Accueil</a>
+          <a href="client.html" aria-current="page">Espace client</a>
+          <a href="conseiller.html">Espace conseiller</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrapper page">
+      <header class="page__header">
+        <h1>Décrivez votre besoin en quelques minutes</h1>
+        <p>
+          Remplissez ce formulaire pour aider un conseiller à comprendre votre situation et
+          préparer un accompagnement personnalisé.
+        </p>
+      </header>
+
+      <div class="page__content page__content--split">
+        <section class="card">
+          <h2>Informations à fournir</h2>
+          <form id="lead-form" novalidate>
+            <fieldset>
+              <legend>Coordonnées</legend>
+              <div class="form-grid">
+                <label>
+                  Nom et prénom
+                  <input type="text" name="fullName" id="fullName" required autocomplete="name" />
+                </label>
+                <label>
+                  Adresse e-mail
+                  <input type="email" name="email" id="email" required autocomplete="email" />
+                </label>
+                <label>
+                  Numéro de téléphone
+                  <input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    required
+                    placeholder="06 00 00 00 00"
+                    autocomplete="tel"
+                  />
+                </label>
+                <label>
+                  Ville
+                  <input type="text" name="city" id="city" autocomplete="address-level2" />
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Projet</legend>
+              <div class="form-grid">
+                <label>
+                  Type d'accompagnement souhaité
+                  <select name="service" id="service" required>
+                    <option value="">Sélectionnez une option</option>
+                    <option value="financement">Financement</option>
+                    <option value="assurance">Assurance</option>
+                    <option value="investissement">Investissement</option>
+                    <option value="patrimoine">Gestion de patrimoine</option>
+                    <option value="autre">Autre</option>
+                  </select>
+                </label>
+                <label>
+                  Budget estimé (€)
+                  <input type="number" name="budget" id="budget" min="0" step="100" />
+                </label>
+                <label>
+                  Échéance du projet
+                  <input type="date" name="timeline" id="timeline" />
+                </label>
+                <label>
+                  Canal de contact préféré
+                  <select name="preferredContact" id="preferredContact">
+                    <option value="email">E-mail</option>
+                    <option value="phone">Téléphone</option>
+                    <option value="visio">Visioconférence</option>
+                    <option value="agence">Rendez-vous en agence</option>
+                  </select>
+                </label>
+              </div>
+              <label class="full-width">
+                Objectifs et attentes détaillés
+                <textarea
+                  name="notes"
+                  id="notes"
+                  rows="6"
+                  placeholder="Décrivez votre situation actuelle, vos objectifs et toute information utile pour préparer le rendez-vous."
+                ></textarea>
+              </label>
+            </fieldset>
+
+            <fieldset>
+              <legend>Consentement</legend>
+              <label class="checkbox">
+                <input type="checkbox" name="consent" id="consent" required />
+                <span>J'accepte que mes données soient utilisées pour être recontacté.</span>
+              </label>
+              <label class="checkbox">
+                <input type="checkbox" name="newsletter" id="newsletter" />
+                <span>Je souhaite recevoir des conseils et actualités par e-mail.</span>
+              </label>
+            </fieldset>
+
+            <button class="button" type="submit">Envoyer ma demande</button>
+            <p class="form-disclaimer">
+              Les informations saisies restent stockées localement dans votre navigateur. Vous
+              pouvez les supprimer à tout moment.
+            </p>
+          </form>
+        </section>
+
+        <aside class="card card--accent" aria-live="polite">
+          <h2>Prévisualisation de votre fiche</h2>
+          <dl class="summary" id="summary">
+            <div>
+              <dt>Nom</dt>
+              <dd data-summary="fullName">—</dd>
+            </div>
+            <div>
+              <dt>Contact</dt>
+              <dd data-summary="email">—</dd>
+              <dd data-summary="phone">—</dd>
+            </div>
+            <div>
+              <dt>Ville</dt>
+              <dd data-summary="city">—</dd>
+            </div>
+            <div>
+              <dt>Accompagnement</dt>
+              <dd data-summary="service">—</dd>
+            </div>
+            <div>
+              <dt>Budget estimé</dt>
+              <dd data-summary="budget">—</dd>
+            </div>
+            <div>
+              <dt>Échéance</dt>
+              <dd data-summary="timeline">—</dd>
+            </div>
+            <div>
+              <dt>Contact préféré</dt>
+              <dd data-summary="preferredContact">—</dd>
+            </div>
+            <div>
+              <dt>Notes</dt>
+              <dd data-summary="notes">—</dd>
+            </div>
+            <div>
+              <dt>Newsletter</dt>
+              <dd data-summary="newsletter">—</dd>
+            </div>
+          </dl>
+
+          <section class="confirmation" id="confirmation" hidden>
+            <h3>Merci !</h3>
+            <p>
+              Votre fiche a été enregistrée. Un conseiller pourra la consulter depuis son
+              interface dédiée.
+            </p>
+            <p>
+              Vous pouvez fermer cette page ou créer une nouvelle fiche en remplissant à
+              nouveau le formulaire.
+            </p>
+            <a class="button button--ghost" href="conseiller.html">Voir l'espace conseiller</a>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <p>Projet démonstrateur — IA Sami</p>
+      </div>
+    </footer>
+
+    <script type="module" src="assets/js/client.js"></script>
+  </body>
+</html>
